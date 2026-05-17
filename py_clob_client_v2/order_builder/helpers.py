@@ -1,5 +1,5 @@
 from math import floor, ceil
-from decimal import Decimal, ROUND_HALF_UP
+from decimal import Decimal, ROUND_HALF_EVEN
 
 def round_down(x: float, sig_digits: int) -> float:
     return floor(x * (10**sig_digits)) / (10**sig_digits)
@@ -16,7 +16,7 @@ def round_up(x: float, sig_digits: int) -> float:
 def to_token_decimals(x: float) -> int:
     return int(
         (Decimal(str(x)) * Decimal("1000000")).to_integral_value(
-            rounding=ROUND_HALF_UP
+            rounding=ROUND_HALF_EVEN
         )
     )
 
